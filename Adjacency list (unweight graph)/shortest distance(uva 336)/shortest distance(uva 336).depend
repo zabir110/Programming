@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1504399466 source:c:\users\zabir\desktop\shortest distance(uva 336)\main.cpp
+	<iostream>
+	<fstream>
+	<bits/stdc++.h>
+

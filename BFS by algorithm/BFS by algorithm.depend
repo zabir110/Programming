@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1505136843 source:c:\users\zabir\desktop\bfs by algorithm\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+	<fstream>
+

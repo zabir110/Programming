@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1504445084 source:c:\users\zabir\desktop\dijksraa(bfs)\main.cpp
+	<iostream>
+	<fstream>
+	<bits/stdc++.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1504059195 source:c:\users\zabir\desktop\adjacency list (unweight graph)\main.cpp
+	<iostream>
+	<fstream>
+	<bits/stdc++.h>
+
