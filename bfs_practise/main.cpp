@@ -2,41 +2,31 @@
 #include<bits/stdc++.h>
 #include<fstream>
 using namespace std;
-vector<int>adj[100];
-stack<int>q;
-int visited[100]= {0};
-void dfs(int n,int s)
+#define pii pair<int,int>
+int fx[]={1,-1,0,0}; //ডিরেকশন অ্যারে
+int fy[]={0,0,1,-1};
+int cell[100][100]; //cell[x][y] যদি -১ হয় তাহলে সেলটা ব্লক
+int d[100][100],vis[100][100]; //d means destination from source.
+int row,col;
+void bfs(int sx,int sy) //Source node is in [sx][sy] cell.
 {
-    q.push(s);
-    while(!q.empty())
-    {
-        int u=q.top();
-        q.pop();
-        if(!visited[u])
-        {
-            cout<<u<<" ";
-            visited[u]=1;
-        }
-        for(int i=0; i<adj[u].size(); i++)
-        {
-            int v=adj[u][i];
-            if(!visited[v]) q.push(v);
-        }
-    }
-}
-
-int main()
-{
-    int node,a,b;
-    ifstream in("z.txt");
-    in>>node;
-    while(in>>a>>b)
-    {
-        adj[a].push_back(b);
-    }
-    int s;
-    cout<<"source: ";
-    cin>>s;
-    dfs(node,s);
-    return 0;
+	memset(vis,0,sizeof vis);
+	vis[sx][sy]=1;
+	queue<pii>q; //A queue containing STL pairs
+	q.push(pii(sx,sy));
+	while(!q.empty())
+	{
+		pii top=q.front(); q.pop();
+		for(int k=0;k<4;k++)
+		{
+			int tx=top.uu+fx[k];
+			int ty=top.vv+fy[k]; //Neighbor cell [tx][ty]
+			if(tx>=0 and tx<row and ty>=0 and ty<col and cell[tx][ty]!=-1 and vis[tx][ty]==0) //Check if the neighbor is valid and not visited before.
+			{
+				vis[tx][ty]=1;
+				d[tx][ty]=d[top.uu][top.vv]+1;
+				q.push(pii(tx,ty)); //Pushing a new pair in the queue
+			}
+		}
+	}
 }
