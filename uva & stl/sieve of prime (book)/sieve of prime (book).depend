@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1491671721 source:c:\users\zabir\desktop\uva & stl\sieve of prime (book)\main.cpp
+	<iostream>
+	<math.h>
+	<bits/stdc++.h>
+

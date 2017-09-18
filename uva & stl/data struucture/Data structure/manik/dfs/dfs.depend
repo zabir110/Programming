@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1495793443 source:h:\others\my all programs\c++\dfs\main.cpp
+	<iostream>
+	<vector>
+	<stack>
+

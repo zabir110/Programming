@@ -37,6 +37,7 @@ vector<int>adj[100];
 int dis[10];
 int cost[10][10]= {0};
 priority_queue<pii>q;
+//priority_queue< pii, vector <pii>, greater<pii>>q;
 void Dijkstra(int node,int s)
 {
     dis[s]=0;

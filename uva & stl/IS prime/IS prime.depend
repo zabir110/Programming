@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1491186161 source:c:\users\zabir\desktop\uva & stl\is prime\main.cpp
+	<iostream>
+	<math.h>
+	<bits/stdc++.h>
+
