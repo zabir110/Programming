@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1492282577 source:c:\users\zabir\desktop\uva & stl\b. odd sum\main.cpp
-	<cmath>
-	<cstdio>
-	<vector>
-	<iostream>
-	<algorithm>
-

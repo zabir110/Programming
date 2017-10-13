@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1497675510 source:c:\users\zabir\desktop\uva & stl\tree creation\main.cpp
-	<iostream>
-	<stack>
-	<bits/stdc++.h>
-

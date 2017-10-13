@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1505281750 source:c:\users\dell\desktop\2nd_lab_zabir\main.cpp
+	<iostream>
+
+1505408010 source:c:\users\zabir\desktop\2nd_lab_zabir\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

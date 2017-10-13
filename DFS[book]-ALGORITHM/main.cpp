@@ -42,39 +42,39 @@ void DFS_visit(int u)
 
     clr[u]='b';
     f[u]=++t;
-    //use list for strongly tropological sort
-  //  l.push_front(u);
+//    use list for strongly tropological sort
+    l.push_front(u);
 }
 
 
-////strongly tropological sort
-//void DFS_v(int u)
-//{
-//    clr[u]='g';
-//    d[u]=++t;
-//    for(int i=0; i<a[u].size(); i++)
-//    {
-//        int v=a[u][i];
-//        if(clr[v]=='w')
-//        {
-//            parent[v]=u;
-//            DFS_v(v);
-//        }
-//    }
-//    cout<<u<<" ";
-//    clr[u]='b';
-//    f[u]=++t;
-//}
-//void Topological_sort(int n)
-//{
-//    for(int i=1; i<=n; i++) clr[i]='w';
-//    for(int i=1; i<=n; i++) parent[i]=-1;
-//
-//    for(auto it=l.begin(); it!=l.end(); it++)
-//    {
-//        if(clr[*it]=='w') DFS_v(*it);
-//    }
-//}
+//strongly tropological sort
+void DFS_v(int u)
+{
+    clr[u]='g';
+    d[u]=++t;
+    for(int i=0; i<a[u].size(); i++)
+    {
+        int v=a[u][i];
+        if(clr[v]=='w')
+        {
+            parent[v]=u;
+            DFS_v(v);
+        }
+    }
+    cout<<u<<" ";
+    clr[u]='b';
+    f[u]=++t;
+}
+void Topological_sort(int n)
+{
+    for(int i=1; i<=n; i++) clr[i]='w';
+    for(int i=1; i<=n; i++) parent[i]=-1;
+
+    for(list<int>::iterator it=l.begin(); it!=l.end(); it++)
+    {
+        if(clr[*it]=='w') DFS_v(*it);
+    }
+}
 
 
 int main()
@@ -85,18 +85,18 @@ int main()
     while(in>>x>>y)
     {
         adj[x].push_back(y);
-        //a[y].push_back(x);
+        a[y].push_back(x);
     }
 //    Adjency list
     for(int i=0; i<n; i++)
     {
         cout<<i<<" ";
-        for(auto it=adj[i].begin(); it!=adj[i].end(); it++) cout<<*it<< " ";
+        for(vector<int>:: iterator it=adj[i].begin(); it!=adj[i].end(); it++) cout<<*it<< " ";
         cout<<endl;
     }
 
     DFS(n);
     //strongly connected
-    //Topological_sort(n);
+    Topological_sort(n);
     return 0;
 }
