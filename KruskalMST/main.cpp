@@ -35,8 +35,7 @@ void makeset()
 int Find_rep(int r)
 {
     if(parent[r]==r) return r;
-    parent[r]=Find_rep(parent[r]);
-    return parent[r];
+    return Find_rep(parent[r]);
 
 }
 void Union(int a,int b)

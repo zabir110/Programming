@@ -4,13 +4,13 @@
 using namespace std;
 vector<int>adj[20];
 queue<int>q;
-int parent[20];
-int visited[100];
+int parent[20]={0};
+int dis[100];
 int cnt=0;
 // Find path though the graph from a given node to another.
 // If start and end node are same then nothing to do just print that node.
 // Else
-find_path(int source,int des)
+void find_path(int source,int des)
 {
     //Easy process
     if(source==des) cout<<source<<"->";
@@ -43,67 +43,65 @@ void BFS(int s,int n)
 {
 
     q.push(s);
-    visited[s]=0;
-    cnt++;
+    dis[s]=0;
+
     while(!q.empty())
     {
         int u=q.front();
         q.pop();
-        //    cout<<u<<" ";
         for(int i=0; i<adj[u].size(); i++)//nth vector 1st,2nd,.....element
         {
             int v=adj[u][i];
-            if(visited[v]==555)//nth vector 1st,2nd,.....element ar value ta visit hoice kina,
+            if(dis[v]==555)//nth vector 1st,2nd,.....element ar value ta visit hoice kina,
             {
-                visited[v]=visited[u]+1;//visited value ta amon vabe raksi, jate distance bhojhay
+                dis[v]=dis[u]+1;//dis value ta amon vabe raksi, jate distance bhojhay
                 parent[v]=u;
                 q.push(v);
             }
         }
     }
-    cout<<endl;
     // Print all the reachable nodes with distance from current nodes.
-//    for(int i=1; i<=n; i++)
-//    {
-//        if(visited[i]!=555)
-//            cout<<s<<" "<<i<<" "<<visited[i]<<endl;
-//        else cout<<s<<" "<<i<<" "<<"no path"<<endl;
-//    }
-    // Print the parent array.
-//    for (int i=1; i<=n; i++)
-//    {
-//        cout<<i<<" r parent"<<" "<<parent[i]<<endl;
-//    }
-//    int d;
-//    cout<<"destination: ";
-//    cin>>d;
-//   find_path(s,d);
-}
-void component_find(int n)
-{
     for(int i=1; i<=n; i++)
     {
-        if(visited[i]==555)
-            BFS(i,n);
+        if(dis[i]!=555)
+            cout<<s<<" "<<i<<" "<<dis[i]<<endl;
+        else cout<<s<<" "<<i<<" "<<"no path"<<endl;
     }
+   //  Print the parent array.
+    for (int i=1; i<=n; i++)
+    {
+        cout<<i<<" r parent"<<" "<<parent[i]<<endl;
+    }
+    int d;
+    cout<<"destination: ";
+    cin>>d;
+   find_path(s,d);
 }
+//void component_find(int n)
+//{
+//    for(int i=1; i<=n; i++)
+//    {
+//        if(dis[i]==555)
+//            BFS(i,n);
+//    }
+//}
 int main()
 {
 
     ifstream in("z.txt");
     int n,x,y,data,cnt=0;
     in>>n;
-    for(int i=1; i<=n; i++) visited[i]=555;
+  for(int i=1;i<=n;i++) dis[i]=555;
     while(in>>x>>y)
     {
         adj[x].push_back(y);
         adj[y].push_back(x);
     }
     int source;
-//    cout<<"source :";
-//    cin>>source;
-    component_find(n);
-
-    cout<<"component: "<<cnt;
+    cout<<"source :";
+    cin>>source;
+    //component_find(n);
+    BFS(source,n);
+    //cout<<"component: "<<cnt;
     return 0;
 }

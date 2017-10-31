@@ -1,7 +1,6 @@
 /*
   336 - A Node Too Far
   UVa Online Judge
-  Esteban Arango Medina
     Solution.
         This is a 'simple' BFS or 'DFS' problem, at the beginning I approached it by using DFS but I got TLE
         so I change it to BFS and result easier. First, for the read I had to use a map, cuz' the nodes could
@@ -14,6 +13,7 @@
 */
 #include<bits/stdc++.h>
 using namespace std;
+//normally we use array ..but nodes which is denoted by index may be large so use map here to see the visited nodes
 map <int,int> visited;
 
 void bfs(int start, map <int,vector<int> > graph)
@@ -29,7 +29,7 @@ void bfs(int start, map <int,vector<int> > graph)
         for(int i=0; i<size; i++)
         {
             int n =graph[top][i];
-            if(!visited.count(n))  //I've already been here.
+            if(!visited.count(n))  //map a ase kina ta check deyer jonno
             {
                 visited[n]=visited[top]+1; //Number of moves until here + 1
                 s.push(n);

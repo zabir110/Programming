@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1509412855 source:c:\users\user\desktop\new folder\backtring\main.cpp
+	<iostream>
+	<stdio.h>
+

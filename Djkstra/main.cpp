@@ -50,8 +50,10 @@ void Dijkstra(int node,int s)
         for(int i=0; i<adj[u].size(); i++)
         {
             int v=adj[u][i];
+
             if(dis[v]>dis[u]+cost[u][v])
                 dis[v]=dis[u]+cost[u][v];
+
             q.push(pii(dis[v],v));
         }
     }

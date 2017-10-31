@@ -12,11 +12,12 @@ using namespace std;
 
 int node;
 int dis[100][100];
-
+int nxt[100][100];
+list<int>l;
 void Print_Distance()
 {
     cout<<"Following matrix shows the shortest distances"
-            " between every pair of vertices \n";
+        " between every pair of vertices \n";
     for(int i=0; i<node; i++)
     {
         for(int j=0; j<node; j++)
@@ -29,7 +30,20 @@ void Print_Distance()
         cout<<endl;
     }
 }
-
+void find_path(int i,int j)
+{
+    cout<<i<<" ";
+    while(i!=j)
+    {
+        i=nxt[i][j];
+        l.push_back(i);
+    }
+    //via is present in list
+    for(auto it=l.begin(); it!=l.end(); it++)
+    {
+        cout<<*it<<" ";
+    }
+}
 void floyd_warshall()
 {
     for(int k=0; k<node; k++)
@@ -41,22 +55,27 @@ void floyd_warshall()
             // above picked source
             for(int j=0; j<node; j++)
             {
-            // If vertex k is on the shortest path from
+                // If vertex k is on the shortest path from
                 // i to j, then update the value of dist[i][j]
                 if((dis[i][k]+dis[k][j]<dis[i][j]))
+                {
                     dis[i][j]=dis[i][k]+dis[k][j];
+                    nxt[i][j]=nxt[i][k];
+                }
             }
         }
     }
     Print_Distance();
+    cout<<"If u want to go any path then press i->j"<<endl;
+    int i,j;
+    cin>>i>>j;
+    find_path(i,j);
 
 }
 
 
 int main()
 {
-
-
     ifstream in("z.txt");
     in>>node;
     int n1,n2,w;
@@ -67,8 +86,20 @@ int main()
         {
             if(i==j)
                 dis[i][j]=0;
+
             else
                 dis[i][j]=INF;
+        }
+
+    }
+
+    //Initialize the way i->j with only means there is no via between i and j
+    for(int i=0; i<node; i++)
+    {
+        for(int j=0; j<node; j++)
+        {
+
+            nxt[i][j]=j;
         }
 
     }
@@ -76,6 +107,7 @@ int main()
     {
         dis[n1][n2]=w;
     }
+
     floyd_warshall();
     return 0;
 }

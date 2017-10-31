@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1505750120 source:d:\programming\kruskalmst\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+	<fstream>
+
